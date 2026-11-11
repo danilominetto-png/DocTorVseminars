@@ -2832,8 +2832,14 @@ In this talk, we will discuss some geometric properties of a class of surfaces o
     function openOrgModal(name) {
       const info = organiserContacts[name];
       if (!info) return;
-      const itHtml = `Vuoi contattare ${name}? Scrivi a <a href="${info.mailto}">${info.email}</a>!`;
-      const enHtml = `Would you like to contact ${name}? Write to <a href="${info.mailto}">${info.email}</a>!`;
+      const itHtml = `Vuoi contattare ${name}? Scrivi a:<br>
+                      <div style="text-align: center; margin-top: 10px;">
+                        <a href="${info.mailto}">${info.email}</a>
+                      </div>`;
+      const enHtml = `Would you like to contact ${name}? Write to:<br>
+                      <div style="text-align: center; margin-top: 10px;">
+                        <a href="${info.mailto}">${info.email}</a>
+                      </div>`;
       orgModalText.setAttribute('data-it', itHtml);
       orgModalText.setAttribute('data-en', enHtml);
       const currentLang = htmlEl.getAttribute('data-lang') || (langToggle.checked ? 'it' : 'en');
